@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="wwwroot\libs\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidator" Version="1.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\InterdisciplinarLTP6.Domain\InterdisciplinarLTP6.Domain.csproj" />
+    <ProjectReference Include="..\InterdisciplinarLTP6.Infra\InterdisciplinarLTP6.Infra.csproj" />
+    <ProjectReference Include="..\InterdisciplinarLTP6.Shared\InterdisciplinarLTP6.Shared.csproj" />
+  </ItemGroup>
+
+</Project>
