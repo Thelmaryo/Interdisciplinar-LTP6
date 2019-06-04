@@ -47,5 +47,15 @@ namespace InterdisciplinarLTP6.Infra.Repositories
                 
             }
         }
+
+        public async Task<int> Quantity()
+        {
+            using (var db = _db.GetConnection())
+            {
+                var sql = "SELECT COUNT(*) FROM Employee";
+                return await db.QuerySingleOrDefaultAsync<int>(sql);
+
+            }
+        }
     }
 }

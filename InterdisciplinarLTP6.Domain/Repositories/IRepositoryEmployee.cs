@@ -8,5 +8,7 @@ namespace InterdisciplinarLTP6.Domain.Repositories
     {
         Task Create(Employee employee);
         Task<IEnumerable<Employee>> List();
+
+        Task<int> Quantity();
     }
 }

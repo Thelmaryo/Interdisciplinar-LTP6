@@ -21,5 +21,10 @@ namespace InterdisciplinarLTP6.Domain.Queries
         {
             return await _EREP.List();
         }
+
+        public async Task<int> GetEmployeesQuantity()
+        {
+            return await _EREP.Quantity();
+        }
     }
 }

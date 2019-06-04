@@ -26,5 +26,15 @@ namespace InterdisciplinarLTP6.Infra.Repositories
                 return await db.QueryFirstOrDefaultAsync<Vehicle>("SELECT * FROM Vehicle WHERE Plate = @Plate", new { Plate });
             }
         }
+
+        public async Task<int> Quantity()
+        {
+            using (var db = _db.GetConnection())
+            {
+                var sql = "SELECT COUNT(*) FROM Vehicle";
+                return await db.QuerySingleOrDefaultAsync<int>(sql);
+
+            }
+        }
     }
 }

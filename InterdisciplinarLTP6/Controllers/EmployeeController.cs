@@ -15,17 +15,24 @@ namespace InterdisciplinarLTP6.Controllers
     {
         private readonly EmployeeCommandHandler EmployeeHandler;
         private readonly EmployeeQuery EmployeeQuery;
+        private readonly VehicleQuery VehicleQuery;
 
-        public EmployeeController(EmployeeCommandHandler employeeHandler, EmployeeQuery employQuery)
+        public EmployeeController(EmployeeCommandHandler employeeHandler, EmployeeQuery employeeQuery, VehicleQuery vehicleQuery)
         {
             EmployeeHandler = employeeHandler;
-            EmployeeQuery = employQuery;
+            EmployeeQuery = employeeQuery;
+            VehicleQuery = vehicleQuery;
         }
 
         public async Task<IActionResult> Index()
         {
-            var employees = EmployeeQuery.GetEmployees().GetAwaiter().GetResult();
-            return View(employees);
+            var employees = EmployeeQuery.GetEmployees();
+            var employeesQuantity = EmployeeQuery.GetEmployeesQuantity();
+            var vehiclesQuantity = VehicleQuery.GetVehiclesQuantity();
+            await Task.WhenAll(employees, employeesQuantity, vehiclesQuantity);
+            ViewBag.EmployeesQuantity = employeesQuantity.Result;
+            ViewBag.VehiclesQuantity = vehiclesQuantity.Result;
+            return View(employees.Result);
         }
 
         public IActionResult Create()

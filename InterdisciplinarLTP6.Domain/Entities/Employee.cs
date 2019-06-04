@@ -52,7 +52,7 @@ namespace InterdisciplinarLTP6.Domain.Entities
 
         private async Task CPFValidation()
         {
-            if (string.IsNullOrEmpty(CPF) || CPF.Length != 11)
+            if (string.IsNullOrEmpty(CPF) || CPF.Length != 14)
             {
                 AddNotification(CPF, "CPF Invalido!");
                 return;

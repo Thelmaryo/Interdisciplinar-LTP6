@@ -7,5 +7,6 @@ namespace InterdisciplinarLTP6.Domain.Repositories
     public interface IRepositoryVehicle
     {
         Task<Vehicle> GetByPlate(string Plate);
+        Task<int> Quantity();
     }
 }

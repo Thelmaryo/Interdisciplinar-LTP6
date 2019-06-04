@@ -25,6 +25,7 @@ namespace InterdisciplinarLTP6
             services.AddTransient<IRepositoryVehicle, RepositoryVehicle>();
             services.AddTransient<EmployeeCommandHandler>();
             services.AddTransient<EmployeeQuery>();
+            services.AddTransient<VehicleQuery>();
             services.AddMvc();
         }
 
